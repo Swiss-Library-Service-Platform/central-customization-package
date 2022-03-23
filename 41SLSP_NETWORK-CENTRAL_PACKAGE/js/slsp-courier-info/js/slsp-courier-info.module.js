@@ -32,7 +32,7 @@ angular
 		<p>${this.parentCtrl.$translate.instant('customize.fullview.feesInfo')}</p>
 		<p><a href="${this.parentCtrl.$translate.instant('customize.fullview.feesUrl')}"
 		target="_blank">${this.parentCtrl.$translate.instant('customize.fullview.feesLinkText')}</a></p>`;
-                form.insertBefore(info, form.children[formLength - 1]);
+                form.insertBefore(info, form.children[formLength -1]);
             }
         }
 
@@ -40,6 +40,5 @@ angular
 
     .component('prmRequestAfter', {
         bindings: { parentCtrl: '<' },
-        controller: 'CourierInfoController',
-        template:'<slsp-request-after parent-ctrl="$parent.$ctrl"></slsp-request-after>'
+        controller: 'CourierInfoController'
     });
