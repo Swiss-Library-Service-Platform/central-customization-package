@@ -4,7 +4,7 @@ export const ethLocationsAfterModule = angular
     .module('ethLocationsAfterModule', [])
         .component('prmLocationsAfter',  {
             bindings: {parentCtrl: '<'},
-            template: `<eth-locations-filter-component after-ctrl="$ctrl"></eth-locations-filter-component><slsp-locations-after parent-ctrl="$parent.$ctrl"></slsp-locations-after>`
+            template: `<eth-locations-filter-component after-ctrl="$ctrl"></eth-locations-filter-component>`
         });
 
 ethLocationsAfterModule.requires.push(ethLocationsFilterModule.name);
