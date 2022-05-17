@@ -16,5 +16,5 @@ import './slsp-request-cancel-button';
 import './slsp-http-intercept-pickup-information';
 
 
-var app = angular.module('viewCustom', ['angularLoad', 'slspCourierInfo', 'slspIllSigninOrderAlert', 'ethLocationsAfterModule', 'ethLocationItemsAfterModule', 'slspArchivesHtgi', 'slspArchivesViewit','slspHttpInterceptRequests', 'slspUserAreaExpandableAfterModule', 'slspLoanAfterModule', 'slspPersonalInfoAfterModule', 'prmAlmaOtherMembersAfterModule', 'prmServiceNgrsAfterModule', 'prmServicePhysicalBestOfferAfterModule', 'slspRequestCancelButton', 'slspHttpInterceptPickupInformation']);
+var app = angular.module('centralCustom', ['angularLoad', 'slspCourierInfo', 'slspIllSigninOrderAlert', 'ethLocationsAfterModule', 'ethLocationItemsAfterModule', 'slspArchivesHtgi', 'slspArchivesViewit','slspHttpInterceptRequests', 'slspUserAreaExpandableAfterModule', 'slspLoanAfterModule', 'slspPersonalInfoAfterModule', 'prmAlmaOtherMembersAfterModule', 'prmServiceNgrsAfterModule', 'prmServicePhysicalBestOfferAfterModule', 'slspRequestCancelButton', 'slspHttpInterceptPickupInformation']);
 
