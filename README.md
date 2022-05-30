@@ -5,4 +5,4 @@ This repository contains the latest version of the central customization package
 
 New elements implemented in this package are announced via blogpost in SLSPhere.
 
-Last update of the central customization package: 09.05.2022
+Last update of the central customization package: 19.05.2022
