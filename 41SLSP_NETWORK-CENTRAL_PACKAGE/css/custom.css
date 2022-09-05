@@ -605,10 +605,12 @@
             
 			            /* Sections titles' font weight and space */
             
-			.full-view-section {
-				margin-top: 2.5em !important;
-			}
-			
+            .full-view-section {
+                margin-top: 0 !important;
+            }
+			.full-view-section .full-view-section-content {
+                margin-top: 2.5em !important;
+            }
             .full-view-section .section-title {
                 font-weight: 500;
                 padding-left: unset;
@@ -709,7 +711,7 @@
 				padding-left: 0px;
 			}
 
-			span.availability-status.available_in_institution {
+			span.availability-status.available_in_institution, span.availability-status.available_online {
 				margin-left: 34px;
 			}
 
@@ -1011,7 +1013,7 @@
 			}
 			
 			#getit_link1_0 > div > prm-full-view-service-container > div.section-body > div > prm-alma-viewit > prm-alma-viewit-items > md-list > div {
-				display: flex;
+				/*display: flex;*/
 				justify-content: space-between;
 				flex-wrap: wrap;
 				/* padding: 10px; */
@@ -1301,7 +1303,8 @@
                     /*460 Rapido*/
 					
 			prm-service-ngrs .best-offer-tile-for-two-offers, prm-service-ngrs .best-offer-tile-for-one-offer {
-				min-width: 52%;
+				min-width: 49%;
+                margin-left: 10px;
 			}
             
 			prm-service-ngrs .grid-for-two-offers, prm-service-ngrs .grid-for-one-offer  {
@@ -1619,6 +1622,10 @@
                 padding-top: 30px;
             }
             
+            slsp-edit-personal-details-component a.courier-info.bar.alert-bar.layout-align-left-center.md-button.md-primoExplore-theme.layout-align-start-center.layout-row {
+                text-decoration: none !important;
+            }
+            
                     /*590 Other*/
             
             /*****************************************************************************/
@@ -1804,7 +1811,7 @@
             .md-button.switch-to-advanced, button.switch-to-simple, span.legal, span.legal > a, a.ps_link.legal, .ps_icon, md-card.prm-primary-bg.psfooter > md-card-content a, 
             .md-button.button-confirm, prm-request-services .md-button.button-as-link, prm-request-services .md-button.button-as-link:hover:not([disabled]), 
             prm-service-button .md-button.button-as-link:hover:not([disabled]), prm-location-items md-list prm-service-button .md-button.button-as-link#rapidoOffer prm-service-physical-best-offer .get_it_btn_digital, 
-            prm-service-physical-best-offer .get_it_btn_physical {
+            prm-service-physical-best-offer .get_it_btn_physical, button#get_it_btn_digital {
                 color: #14413c !important;
             }
             
@@ -1869,18 +1876,29 @@
                  
                  display: flex;
                  flex-wrap: nowrap;
-                 padding: 10px !important;
+                 padding: 0 10px !important;
             }
 
-            .DigiButtonLabel {
-                position: absolute;
-                margin-top: -19px;
-                margin-left: 101px;
-                background-color: #4b4b4b;
+           
+            .DigiButtonLabel, .DigiButtonLabel1 {
+                display: none;
+            }
+
+            .DigiButtonLabel:nth-child(1), .DigiButtonLabel1:nth-child(2)  {
+                display: flex;
+            }
+
+            .DigiButtonLabel, .DigiButtonLabel1 {
+                position: relative;
+                margin-top: 8px;
+                margin-left: 6px;
+                background-color: rgb(75 75 75 / 65%);
                 line-height: 22px;
                 font-size: smaller;
                 padding: 0 5px;
                 color: #fff;
+                float: right;
+                border-radius: 3px;
             }
 
             /*fees link not in view online*/
@@ -1918,6 +1936,7 @@
                 /* max-width: 50px; */
                 margin: -8px 4px 0 4px;
                 border-radius: 4px;
+                min-width: 56px;
             }
             .iconDiv4, .iconDiv5 {
                 visibility: visible !important;
@@ -1945,7 +1964,7 @@
                 display: none;
             }
             .icnWrp:nth-child(1) {
-                display: block;
+                display: flex;
             } 
             @media only screen and (max-width: 960px) {
                 .icnWrp {
@@ -1957,8 +1976,8 @@
 
             prm-service-physical-best-offer .icnWrp {
                 display: flex;
-                margin: 20px 20px 0 10px;
-                min-width: 66px;
+                margin: 20px 24px 0 0px;
+                min-width: 64px;
             }
 
             .courierInfo {
@@ -1971,9 +1990,14 @@
             }
 
 
+           
 
-            md-list.separate-list-items.md-primoExplore-theme.layout-column {
+            md-list.separate-list-items.md-primoExplore-theme.layout-column.icnLblViewitItems {
                 min-height: 100px;
+            }
+
+            md-list.separate-list-items.margin-bottom-medium.padding-bottom-zero.md-primoExplore-theme {
+                margin-bottom: 0;
             }
 
             /*library card*/
@@ -1982,6 +2006,57 @@
             }
 
             /*background color*/
-            md-list.md-primoExplore-theme.icnLblOtherMembersP2 {
+            md-list.md-primoExplore-theme.icnLblOtherMembersP2, md-list.md-primoExplore-theme.icnLblOtherMembersE {
                 background-color: #f3f3f3;
+            }
+
+            /*little location icom*/
+            md-content > md-list > md-list-item > button > div.layout-align-space-between-center.layout-row.flex-100 > div > h3 {
+                display: flex;
+                align-items: center;
+            }
+            
+
+            /*edit personal details button*/
+            span[translate="customized.personal.details"], span[translate="customized.libcard.number"] {
+                white-space: normal;
+            }
+
+            
+            .classic-input {
+                min-width: 258px;
+            }
+
+
+            /*Loan form - Entries of selection Pickup location*/
+            @media only screen and (max-width: 640px) {
+            div.md-select-menu-container.md-primoExplore-theme.md-active.md-clickable {
+                 max-width: 80%;
+            }
+
+            #prm_nui\.ngrs\.pickup\.information\.pickupInstitution > div.md-text > span, #prm_nui\.ngrs\.pickup\.information\.pickupLibrary > div.md-text > span {
+                white-space: normal;
+            }
+        }
+
+            /*hide rapidoFeesLink in the link section*/
+            #links .rapidoFeesLink {
+            display: none;
+            }
+
+
+            [translate="nui.locations.related_locations"] {
+                padding: 29px 0px 0px 14px !important;
+            }
+
+            [translate="fulldisplay.holdings.showmore"] {
+                border: 1px solid #a4a4a4;
+                border-radius: 2px;
+                padding: 8px;
+            }
+
+            [ng-if="$ctrl.relatedLocations.length>$ctrl.relatedLocationsListLimit"] {
+                padding: 0px;
+                margin: 0px 14px !important;
+                background-color: white;
             }
