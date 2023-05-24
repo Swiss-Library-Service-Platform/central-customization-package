@@ -1623,6 +1623,9 @@ prm-location-items md-list {
     margin-bottom: 1.3em !important;
 }
 
+.collapse-related {
+    width: 100%;
+  }
 
 /* Move expand button */
 
