@@ -3078,3 +3078,17 @@ div.courier-info>span a,
 
 
 /*****************************************************************************/
+
+
+/*temporary fix for the Primo August Release, it will replace line 1709 and 1796 in the next sprint*/
+
+h6[ng-if="$ctrl.currLoc.location && $ctrl.getLibraryName($ctrl.currLoc.location)"] {
+    visibility: hidden;
+    margin: 5px 0 !important;
+    min-height: 23px !important;
+    font-size: 18px !important;
+}
+
+prm-location-items>h5 {
+    display: none;
+}
