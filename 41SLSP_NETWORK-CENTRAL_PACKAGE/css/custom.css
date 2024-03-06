@@ -120,6 +120,9 @@
 /*445 Details*/
 
 
+/*446 Export options*/
+
+
 /*449 Other*/
 
 
@@ -809,7 +812,7 @@ prm-stand-alone-login prm-login md-list-item.authMethSaml a:focus {
 
 button#mainMenuFullCloseButton:focus {
     color: #ffffff !important;
-    background-color:unset !important;
+    background-color: unset !important;
 }
 
 /* Timeout session: close button background color */
@@ -957,9 +960,25 @@ button.switch-to-simple.zero-margin.button-with-icon.md-button.md-primoExplore-t
 
 /*Resource type filter bar*/
 
+prm-resource-type-filter-bar button.md-button.md-primoExplore-theme.md-ink-ripple {
+
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+    margin: 5px 6px 5px 0;
+}
+
 prm-resource-type-filter-bar button.md-button.md-primoExplore-theme.md-ink-ripple:hover {
+
+    border-style: solid;
+    border-width: 1px;
     font-weight: 500;
     cursor: pointer;
+}
+
+prm-resource-type-filter-bar button.md-button.md-primoExplore-theme.md-ink-ripple:hover span {
+    box-shadow: none;
 }
 
 /*220 Frames*/
@@ -1200,6 +1219,55 @@ span.section-title-header:hover {
 /*Hide NZ as IZ (import of Recherche Patrimonial data)*/
 div[data-facet-value="institution-5501"] {
     display: none !important;
+}
+
+/*Open Knowledge Maps*/
+
+.eth-okm-link {
+    height: auto !important;
+    line-height: normal !important;
+    margin-bottom: 5px;
+}
+
+.eth-okm-link a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    overflow: visible;
+    white-space: normal;
+    display: flex;
+    margin-right: 40px;
+    text-align: left;
+    align-items: center;
+}
+
+.eth-okm-link a span {
+    color: #3a3a3a;
+    line-height: 1.2em;
+    border-radius: 3px;
+    padding: 3px 0.25em;
+}
+
+.eth-okm-link strong:hover a span,
+.eth-okm-link strong:focus a span {
+    color: #fff;
+    background-color: #3a3a3a;
+}
+
+.eth-okm-link a img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/*Hide the "Open Knowledge Maps" link fully (facet group and okm link)*/
+.okm-full {
+    display: block;
+}
+
+/*Hide the "Open Knowledge Maps" link in the facet group*/
+eth-okm-link-component {
+    display: block;
 }
 
 /*390 Other*/
@@ -1591,7 +1659,7 @@ prm-alma-other-units>button>div>h3,
     order: 7 !important;
 }
 
-[aria-label="Send to"] {
+[aria-label="Export Options"] {
     order: 8 !important;
 }
 
@@ -1642,7 +1710,7 @@ prm-alma-other-units>button>div>h3,
     order: 7 !important;
 }
 
-[aria-label="Senden an"] {
+[aria-label="Exportoptionen"] {
     order: 8 !important;
 }
 
@@ -1693,7 +1761,7 @@ prm-alma-other-units>button>div>h3,
     order: 7 !important;
 }
 
-[aria-label="Envoyer vers"] {
+[aria-label="Exporter"] {
     order: 8 !important;
 }
 
@@ -1744,7 +1812,7 @@ prm-alma-other-units>button>div>h3,
     order: 7 !important;
 }
 
-[aria-label="Invia a"] {
+[aria-label="Esportare"] {
     order: 8 !important;
 }
 
@@ -2043,7 +2111,9 @@ span[translate="nui.item.brief.4"] {
     display: none !important;
 }
 
-/*441 How to get it sections' order*/
+/*441 How to get it*/
+
+/*How to get it sections' order*/
 
 prm-opac {
     order: 1;
@@ -2068,6 +2138,30 @@ primo-explore.alert alma-htgi-svc {
     font-size: 1em;
 }
 
+/*Holding fields display*/
+
+.weak-text.layout-row[ng-repeat="line in $ctrl.currLoc.summaryHoldings.baseSummaryShort track by $index"] {
+    display: none !important;
+}
+
+prm-location prm-location-holdings[ng-if="$ctrl.displayHoldingsInLocationsList"] {
+    display: none;
+}
+
+
+button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple.holding-expand-button,
+button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple.holding-collapse-button {
+    line-height: 23px !important;
+    padding: 1px 10px 1px 0px !important;
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+    background-color: #fff !important;
+}
+
+button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple.holding-expand-button:hover,
+button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple.holding-collapse-button:hover {
+    background-color: #ddd !important;
+}
 
 /*442 Filter bar*/
 
@@ -2270,6 +2364,113 @@ md-list.md-primoExplore-theme.icnLblOtherUnitsE {
 .hsg-fold-icon-collapse {
     transform: rotate(180deg);
     margin-top: -5px;
+}
+
+/*446 Export options*/
+
+/*Send email form*/
+
+.send-email-info-box {
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 18px 26px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+    .send-email-info-box {
+        width: 80%;
+    }
+}
+
+@media (max-width: 599px) {
+    .send-email-info-box {
+        width: 100%;
+    }
+}
+
+label[translate="email.to"], label[translate="email.note"] {
+    color: #848484 !important;
+}
+
+/*Citation export**/
+
+.slsp-citation-select-radio .md-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    left: 0;
+    right: auto;
+}
+
+.slsp-citation-select-radio .md-container:before {
+    box-sizing: border-box;
+    background-color: transparent;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    display: block;
+    height: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: all .5s;
+    width: auto;
+}
+
+.slsp-citation-select-radio .md-on,
+.slsp-citation-select-radio .md-off {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.slsp-citation-select-radio .md-off {
+    border-color: rgba(0, 0, 0, .57);
+}
+
+.slsp-citation-select-radio .md-off {
+    border-style: solid;
+    border-width: 2px;
+    transition: border-color .28s ease;
+}
+
+.slsp-citation-select-radio>span {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.slsp-citation-select-radio:hover:not([disabled]),
+.slsp-citation-select-radio:focus:not([disabled]) {
+    color: unset !important;
+    background-color: unset !important;
+}
+
+.slsp-citation-select-radio .md-on {
+    transition: transform .28s ease;
+    transform: scale(0);
+}
+
+.slsp-citation-select-radio.md-active .md-on {
+    transform: scale(.5);
+}
+
+.slsp-citation-select-radio.md-active .md-on {
+    background-color: #4E4A99 !important;
+    /* add to custom css - background of the primary color*/
 }
 
 /*449 Other*/
@@ -3468,7 +3669,8 @@ prm-resource-type-filter-bar prm-icon {
     color: #14413c !important;
 }
 
-button.switch-to-advanced.zero-margin.button-with-icon.md-button.md-primoExplore-theme.md-ink-ripple {
+button.switch-to-advanced.zero-margin.button-with-icon.md-button.md-primoExplore-theme.md-ink-ripple,
+prm-resource-type-filter-bar button.md-button.md-primoExplore-theme.md-ink-ripple:hover {
     border-color: #14413c !important;
 }
 
