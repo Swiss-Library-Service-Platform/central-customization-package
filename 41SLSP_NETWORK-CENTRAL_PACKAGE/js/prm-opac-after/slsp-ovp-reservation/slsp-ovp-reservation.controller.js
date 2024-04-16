@@ -31,7 +31,7 @@ export class slspOvpReservationController {
             // Den Button innerhalb des aktuellen "prm-opac" Teils auswählen
             let reservationButton = prmOpacElement.querySelector('prm-service-button button span[translate="AlmaRequest"], prm-service-button button span[translate="AlmaRequestOther"]');
 
-            if (!this.processDoCheck && unavailability !== "available") {
+            if (!this.processDoCheck && unavailability !== "available" && unavailability !== "check_holdings") {
                 // Überprüfen, ob das Element gefunden wurde, bevor auf innerHTML zugegriffen wird
                 if (reservationButton && !reservationButton.innerHTML.includes('customized.rapido.reservation')) {
                     // Element mit "reservationLabel" ersetzen

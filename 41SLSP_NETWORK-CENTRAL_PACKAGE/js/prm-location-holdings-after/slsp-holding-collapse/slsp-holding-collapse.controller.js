@@ -10,6 +10,23 @@ export class slspHoldingCollapseController {
         };
     }
 
+    $onInit() {
+        this.parentCtrl = this.afterCtrl.parentCtrl;
+        let vm = this; // speichern Sie eine Referenz auf das aktuelle Objekt
+
+        this.$scope.$watch(
+            function () {
+                return vm.parentCtrl.currLoc;
+            },
+            function (newValue, oldValue) {
+                if (newValue !== undefined && newValue.isHoldingExpandedData !== undefined && newValue.isHoldingExpandedData === true) {
+                    let addCollapseClass = document.querySelectorAll("prm-location-holdings");
+                    angular.element(addCollapseClass).addClass('holding-data-expandable');
+                }
+            }
+        );
+    }
+
     $doCheck() {
         try {
             let holdingExpand = document.querySelectorAll('button[ng-if="($ctrl.currLoc.locationNoItems ?  $ctrl.summaryLinesVisible : !$ctrl.summaryLinesVisible) && $ctrl.currLoc.summaryHoldings.baseSummaryShort.length > 0 && $ctrl.currLoc.isHoldingExpandedData"] > span[translate="nui.locations.viewMore"]');
@@ -32,7 +49,7 @@ export class slspHoldingCollapseController {
                 angular.element(holdingCollapseButton).addClass('holding-collapse-button');
             });
         } catch (e) {
-            console.error("***SLSP*** an error occurred: Rapido hide Library\n\n");
+            console.error("***SLSP*** an error occurred: slspHoldingCollapseController\n\n");
             console.error(e.message);
         }
     }
