@@ -10,6 +10,7 @@ export class slspHoldingCollapseController {
         };
     }
 
+
     $onInit() {
         this.parentCtrl = this.afterCtrl.parentCtrl;
         let vm = this; // speichern Sie eine Referenz auf das aktuelle Objekt
@@ -48,6 +49,8 @@ export class slspHoldingCollapseController {
                 }
                 angular.element(holdingCollapseButton).addClass('holding-collapse-button');
             });
+
+
         } catch (e) {
             console.error("***SLSP*** an error occurred: slspHoldingCollapseController\n\n");
             console.error(e.message);

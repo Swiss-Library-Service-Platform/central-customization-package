@@ -33,6 +33,9 @@
 /*140 Login pop up box*/
 
 
+/*150 swisscovery alert bar*/
+
+
 /*190 Other*/
 
 
@@ -67,6 +70,9 @@
 
 
 /*310 Facets*/
+
+
+/*320 Top bar*/
 
 
 /*390 Other*/
@@ -805,6 +811,45 @@ prm-stand-alone-login prm-login md-list-item.authMethSaml a:focus {
     color: #111 !important;
 }
 
+/*Magnifying-glass in the login institution search box*/
+label[translate="login.union.title"]:before {
+    content: ' ';
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="100%" height="100%" viewBox="0 0 24 24" style="transform:scale(-1,1)" xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="white" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>');
+    background-repeat: no-repeat;
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    margin-right: 5px;
+    background-position: 1px 3px;
+    margin-bottom: -3px;
+}
+
+/*Search bar*/
+label[translate="login.union.title"] {
+    text-transform: none !important;
+    font-size: 20px !important;
+    font-weight: 300 !important;
+}
+
+/*150 swisscovery alert bar*/
+
+.slsp-git-topbar {
+    background-color: #FEF3BE;
+    color: #000;
+    border-bottom: solid 1px rgba(58, 58, 58, .2);
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em 0.5em 0;
+    font-size: 16px;
+}
+
+.slsp-git-topbar svg {
+    margin-right: 0.3em;
+    flex: 0 0 24px;
+}
+
 /*190 Other*/
 
 
@@ -916,6 +961,43 @@ button.dismiss-alert-button:hover {
     background-color: #111;
 }
 
+/*Delete last line advanced search button*/
+
+form[name="advancedSearch"] div.margin-top-small.layout-align-start-center.layout-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button[ng-click="$ctrl.incrementLimit()"],
+button[ng-click="$ctrl.decrementLimit()"] {
+    display: flex;
+    margin: 10px 10px 10px 0 !important;
+    border-radius: 3px;
+    min-width: fit-content;
+}
+
+button[ng-click="$ctrl.decrementLimit()"] svg {
+    height: 23px;
+    width: 23px;
+    min-width: 23px;
+}
+
+button[ng-click="$ctrl.decrementLimit()"] svg path {
+    fill: #3d6e94;
+}
+
+button[ng-click="$ctrl.decrementLimit()"]:hover svg path,
+button[ng-click="$ctrl.decrementLimit()"]:focus svg path {
+    fill: #ffffff;
+}
+
+span[translate="nui.search-advanced.add"],
+button.decrement-limit span {
+    white-space: normal;
+    line-height: normal;
+    text-align: left;
+}
 
 /*switch to simple search button*/
 
@@ -1160,13 +1242,11 @@ prm-static.md-padding.flex {
 
 /*300 General*/
 
-
 /*backgound search results boxes*/
 
 .list-item-wrapper {
     background-color: #f9f9f9;
 }
-
 
 /*title color*/
 
@@ -1195,11 +1275,22 @@ a.md-mini.md-button.md-primoExplore-theme.md-ink-ripple:hover {
     color: white !important;
 }
 
-/*Save query button*/
-
-#mainResults>prm-search-result-tool-bar>div>md-toolbar>div.search-toolbar-title.hide-xs.layout-row>prm-add-query-to-saved-searches>.md-button:hover:not([disabled]) {
-    color: #111111 !important;
-    background-color: rgba(17, 17, 17, 0.10) !important;
+/*Availability status color switched to black*/
+span[translate="delivery.code.Loan"],
+span[translate="delivery.code.Acquisition"],
+span[translate="delivery.code.ClaimedReturned"],
+span[translate="delivery.code.HoldShelf"],
+span[translate="delivery.code.Lost"],
+span[translate="delivery.code.InProcess"],
+span[translate="delivery.code.Missing"],
+span[translate="delivery.code.ResourceSharingRequest"],
+span[translate="delivery.code.TechnicalMigration"],
+span[translate="delivery.code.Transit"],
+span[translate="delivery.code.Requested"],
+span[translate="delivery.code.ngrs.unavailable"],
+span[translate="delivery.code.ngrs.not_available"],
+span[translate="delivery.code.NotinProcess"] {
+    color: #222 !important;
 }
 
 /*310 Facets*/
@@ -1268,6 +1359,125 @@ div[data-facet-value="institution-5501"] {
 /*Hide the "Open Knowledge Maps" link in the facet group*/
 eth-okm-link-component {
     display: block;
+}
+
+/*320 Top Bar*/
+
+#mainResults>prm-search-result-tool-bar>div>md-toolbar>div.search-toolbar-title.hide-xs.layout-row>prm-add-query-to-saved-searches>.md-button:hover:not([disabled]) {
+    color: #111111 !important;
+    background-color: rgba(17, 17, 17, 0.10) !important;
+}
+
+prm-search-result-tool-bar span.text.tiny-uppercase-text {
+    display: none;
+}
+
+prm-search-result-tool-bar .results-title {
+    font-style: normal;
+    font-size: 14px;
+}
+
+prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple {
+    border: 1px solid #1c1c1c;
+    line-height: 30px;
+}
+
+prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:focus {
+    background-color: #d3d3d3 !important;
+    color: #111 !important;
+}
+
+prm-add-query-to-saved-searches md-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+span[translate="results.savequery"] {
+    font-weight: 400 !important;
+    color: #111 !important;
+    font-size: 14px !important;
+}
+
+prm-search-result-tool-bar .search-toolbar-title.hide-xs.layout-row {
+    margin-bottom: 1px;
+}
+
+prm-search-result-list .pages-separated-with-gaps .results-title:not(.results-title-favorites) {
+    place-content: space-between;
+}
+
+prm-search-result-list span.results-count.layout-align-center-start {
+    font-style: normal !important;
+}
+
+prm-search-result-list .toolbar-actions.layout-align-end-center.layout-row.flex {
+    max-width: 10%;
+}
+
+prm-search-result-list .mobile-page-range span.text.tiny-uppercase-text {
+    display: none;
+}
+
+/*Mobiles*/
+
+@media only screen and (max-width: 959px) {
+
+    prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple,
+    prm-search-result-list button.button-link.padding-zero.facet-filter.button-as-link-mobile.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple,
+    button#sidebar-trigger {
+        border: 1px solid #1c1c1c;
+        width: 36px;
+        height: 36px;
+        margin: 6px !important;
+    }
+
+    prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:hover,
+    prm-search-result-list button.button-link.padding-zero.facet-filter.button-as-link-mobile.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:hover,
+    button#sidebar-trigger:hover,
+    prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:focus,
+    prm-search-result-list button.button-link.padding-zero.facet-filter.button-as-link-mobile.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:focus,
+    button#sidebar-trigger:focus {
+        background-color: #ddd !important;
+        color: #111 !important;
+    }
+
+    prm-search-result-list .pages-separated-with-gaps .results-title:not(.results-title-favorites) {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    md-toolbar.md-toolbar-tools.results-title._md.md-primoExplore-theme.layout-align-start-center.layout-row._md-toolbar-transitions {
+        flex-direction: row;
+        align-content: center;
+    }
+
+    prm-search-result-tool-bar .md-toolbar-tools {
+        padding: 0 10px !important;
+    }
+}
+
+@media only screen and (max-width: 599px) {
+    prm-search-result-list div.mobile-actions.layout-align-end-center.layout-row.flex {
+        align-items: normal !important;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 959px) {
+    prm-add-query-to-saved-searches {
+        height: 38px !important;
+    }
+
+    prm-search-result-list .mobile-actions.layout-align-end-center.layout-row.flex {
+        align-items: center !important;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    prm-search-result-list .pages-separated-with-gaps .results-title:not(.results-title-favorites) {
+        padding: 0 8px 0 13px !important;
+    }
 }
 
 /*390 Other*/
@@ -1567,6 +1777,16 @@ prm-alma-other-units>button>div>h3,
     margin-top: 8px;
 }
 
+/*View it and getit Other institutions alignement*/
+
+span[translate="nui.brief.results.tabs.viewit_other"],
+span[translate="nui.brief.results.tabs.getit_other"] {
+    white-space: normal;
+}
+
+prm-alma-other-members .medium-uppercase-bold .bold {
+    text-align: left;
+}
 
 /*410 Sections' order*/
 
@@ -2391,7 +2611,8 @@ md-list.md-primoExplore-theme.icnLblOtherUnitsE {
     }
 }
 
-label[translate="email.to"], label[translate="email.note"] {
+label[translate="email.to"],
+label[translate="email.note"] {
     color: #848484 !important;
 }
 
@@ -2468,10 +2689,6 @@ label[translate="email.to"], label[translate="email.note"] {
     transform: scale(.5);
 }
 
-.slsp-citation-select-radio.md-active .md-on {
-    background-color: #4E4A99 !important;
-    /* add to custom css - background of the primary color*/
-}
 
 /*449 Other*/
 
@@ -3304,6 +3521,24 @@ div.loan-item-title {
     display: none;
 }
 
+/*Cancel request popup box*/
+
+prm-requests md-dialog.in-element-dialog {
+    width: 94%;
+    height: 91%;
+    padding-right: 10px !important;
+    background-color: #fff;
+}
+
+prm-requests md-dialog.in-element-dialog button.md-button.md-primoExplore-theme.md-ink-ripple {
+    border: 1px solid #8e8e8e;
+}
+
+form.ng-pristine.ng-valid.layout-fill.layout-align-end-center.layout-row {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
 /*540 Fees*/
 
 /*Alert bar for closed fines*/
@@ -3463,6 +3698,40 @@ prm-request>div>div.service-form-dynamic-panel.zero-margin.layout-padding.layout
 
 /*940 Favorites*/
 
+form[ng-submit="$ctrl.addNewLabel()"] {
+    background-color: unset;
+}
+
+form[ng-submit="$ctrl.addNewLabel()"] input[ng-model="$ctrl.newLabel"] {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+form[ng-submit="$ctrl.addNewLabel()"] label[translate="nui.favorites.labels.new"] {
+    color: #aaa !important;
+}
+
+button.slsp-save-label-button {
+    background: none;
+    border: unset;
+}
+
+button.slsp-save-label-button svg {
+    fill: #9c9c9c;
+}
+
+button.slsp-save-label-button:hover svg {
+    fill: #111111;
+}
+
+md-menu-content#menuContent md-menu-item .md-button:focus {
+    background-color: #ffffff !important;
+    color: #111 !important;
+}
+
+md-menu-content#menuContent md-menu-item .md-button:hover {
+    background-color: #111111 !important;
+    color: #fff !important;
+}
 
 /*950 Alma viewer*/
 
@@ -3609,7 +3878,9 @@ button.switch-to-simple,
 prm-request-services .md-button.button-as-link,
 prm-location-items md-list prm-service-button .md-button.button-as-link,
 #rapidoOffer prm-service-physical-best-offer .get_it_btn_digital,
-prm-service-physical-best-offer .get_it_btn_physical {
+prm-service-physical-best-offer .get_it_btn_physical,
+md-input-container:after,
+.slsp-citation-select-radio.md-active .md-on {
     background-color: #3BBFAD !important;
 }
 
@@ -3734,10 +4005,12 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
     color: #111111 !important;
 }
 
-
 /*selection color of the secondary color*/
 
-.bar.alert-bar ::selection {
+.bar.alert-bar ::selection,
+.classic-input .search-scope ::selection,
+.prm-alert-bg ::selection,
+#rapidoOffer prm-rapido-no-offer-message .main_tile ::selection {
     background: #9d9cbd;
 }
 
@@ -3770,3 +4043,5 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
 
 
 /*****************************************************************************/
+
+
