@@ -1,6 +1,8 @@
 {
-    "de": "Bücherbestellungen unter 'Weitere Bestelloptionen' momentan nicht möglich.",
-    "en": "Book order under 'Other order options' currently not possible.",
-    "fr": "Commande de livres sous 'Autres options de commande' actuellement pas possible.",
-    "it": "Ordine di libri sotto 'Altre opzioni di ordinazione' attualmente non possibile."
+    "de": "Am Montag, 15. Juli 2024, kann es zwischen 19:00 und 20:00 Uhr zu einem Unterbruch beim Einloggen in swisscovery kommen. Grund dafür ist die Neugestaltung der Benutzeroberfläche und die Verbesserung der edu-ID Kontoverwaltung auf https://eduid.ch.",
+    "en": "On Monday, 15 July 2024, there may be an interruption when logging in to swisscovery between 19:00 and 20:00. This is due to a new design of the user interface and improvement of the edu-ID account management on https://eduid.ch.",
+    "fr": "Le lundi 15 juillet 2024, il se peut qu'il y ait une interruption lors de la connexion à swisscovery entre 19h00 et 20h00. Ceci est dû à une nouvelle conception de l'interface utilisateur et à l'amélioration de la gestion du compte edu-ID sur https://eduid.ch.",
+    "it": "Lunedì 15 luglio 2024 potrebbe verificarsi un'interruzione dell'accesso a swisscovery tra le 19.00 e le 20.00. Ciò è dovuto a un nuovo design dell'interfaccia utente e al miglioramento della gestione degli account edu-ID su https://eduid.ch.",
+    "startTime": "2024-07-15T18:55:00Z",
+    "endTime": "2024-07-15T20:05:00Z"
     }
