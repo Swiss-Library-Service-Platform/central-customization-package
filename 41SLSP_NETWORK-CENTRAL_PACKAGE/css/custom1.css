@@ -105,6 +105,18 @@
 /*430 Get it - requests buttons*/
 
 
+/*431 Requests buttons*/
+
+
+/*432 Purchase request*/
+
+
+/*433 Booking request*/
+
+
+/*439 Other*/
+
+
 /*440 How to get it -  locations, holdings and items*/
 
 
@@ -127,6 +139,9 @@
 
 
 /*446 Export options*/
+
+
+/*447 Other IZs online availability*/
 
 
 /*449 Other*/
@@ -1150,6 +1165,12 @@ md-card.cardbox.default-card.quicklinksbox._md.md-primoExplore-theme>md-card-con
 }
 */
 
+/* Fix color inversion for links after click */
+.quicklinks .md-button.md-focused:not([disabled]),
+.quicklinks .md-button:focus:not([disabled]) {
+    background: none !important;
+}
+
 /*230 Footer*/
 
 
@@ -1289,7 +1310,7 @@ span[translate="delivery.code.Transit"],
 span[translate="delivery.code.Requested"],
 span[translate="delivery.code.ngrs.unavailable"],
 span[translate="delivery.code.ngrs.not_available"],
-span[translate="delivery.code.NotinProcess"] {
+span[translate="delivery.code.NotinProcess"] span[translate="delivery.code.unavailable"] {
     color: #222 !important;
 }
 
@@ -1305,6 +1326,12 @@ span.section-title-header:hover {
 
 .sidebar-section .md-button.button-as-link.link-alt-color:hover {
     background-color: rgba(17, 17, 17, 0.17) !important;
+}
+
+/*Remember All Filters*/
+button.button-as-link.link-alt-color.zero-margin.md-button.md-primoExplore-theme.md-ink-ripple.layout-align-start-center.layout-row.disabledLockButton {
+    color: #aaa !important;
+    cursor: not-allowed;
 }
 
 /*Hide NZ as IZ (import of Recherche Patrimonial data)*/
@@ -1369,7 +1396,8 @@ eth-okm-link-component {
 }
 
 prm-search-result-tool-bar span.text.tiny-uppercase-text {
-    display: none;
+    text-transform: unset;
+    font-size: 1em;
 }
 
 prm-search-result-tool-bar .results-title {
@@ -1379,7 +1407,6 @@ prm-search-result-tool-bar .results-title {
 
 prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple {
     border: 1px solid #1c1c1c;
-    line-height: 30px;
 }
 
 prm-add-query-to-saved-searches button.button-as-link.link-alt-color.md-button.md-primoExplore-theme.md-ink-ripple:focus {
@@ -1401,7 +1428,7 @@ span[translate="results.savequery"] {
 }
 
 prm-search-result-tool-bar .search-toolbar-title.hide-xs.layout-row {
-    margin-bottom: 1px;
+    margin-bottom: 6px;
 }
 
 prm-search-result-list .pages-separated-with-gaps .results-title:not(.results-title-favorites) {
@@ -1416,11 +1443,21 @@ prm-search-result-list .toolbar-actions.layout-align-end-center.layout-row.flex 
     max-width: 10%;
 }
 
-prm-search-result-list .mobile-page-range span.text.tiny-uppercase-text {
-    display: none;
+prm-search-result-list prm-search-result-page-range md-select-value span {
+    font-style: normal !important;
+    margin-left: 26px;
+}
+
+prm-search-result-tool-bar .main-checkbox.animate-enter-leave-scale-bounce.staggered.underlined-input {
+    margin-top: 1px;
 }
 
 /*Mobiles*/
+
+.mobile-page-range span.text.tiny-uppercase-text {
+    text-transform: none;
+    font-size: 1em !important;
+}
 
 @media only screen and (max-width: 959px) {
 
@@ -1445,7 +1482,7 @@ prm-search-result-list .mobile-page-range span.text.tiny-uppercase-text {
 
     prm-search-result-list .pages-separated-with-gaps .results-title:not(.results-title-favorites) {
         flex-direction: row-reverse;
-        align-items: center;
+        /*align-items: center;*/
     }
 
     md-toolbar.md-toolbar-tools.results-title._md.md-primoExplore-theme.layout-align-start-center.layout-row._md-toolbar-transitions {
@@ -1788,6 +1825,16 @@ prm-alma-other-members .medium-uppercase-bold .bold {
     text-align: left;
 }
 
+/*Hide View it and getit OTB no items alert bar*/
+
+alma-htgi-svc.alma-alert-bar-hide prm-alert-bar {
+    display: none;
+}
+
+.logged-out alma-htgi-svc.alma-alert-bar-hide prm-alert-bar {
+    display: block;
+}
+
 /*410 Sections' order*/
 
 #full-view-container>*:first-child {
@@ -2089,14 +2136,13 @@ prm-alma-other-members .medium-uppercase-bold .bold {
     }
 }
 
-
 /* Collapse related titles for e-resources */
 
-#getit_link1_0>div>prm-full-view-service-container>div.section-body>div>prm-alma-viewit>prm-alma-viewit-items:nth-child(2)>md-list.collapsed {
+#getit_link1_0 prm-full-view-service-container prm-alma-viewit prm-alma-viewit-items md-list.collapsed {
     display: none;
 }
 
-#getit_link1_0>div>prm-full-view-service-container>div.section-body>div>prm-alma-viewit>prm-alma-viewit-items:nth-child(2)>md-list {
+#getit_link1_0 prm-full-view-service-container prm-alma-viewit prm-alma-viewit-items md-list {
     display: block;
 }
 
@@ -2150,7 +2196,7 @@ span#public-note p {
 /*430 Get it - requests buttons*/
 
 
-/*Requests buttons*/
+/*431 Requests buttons*/
 
 prm-request-services .md-button.button-as-link {
     padding: 0 20px;
@@ -2165,16 +2211,87 @@ prm-opac>div>prm-request-services>div>div {
     line-height: 45px;
 }
 
+/*432 Purchase request*/
+/* Hide button when inventory is available in the IZ => top button */
+div prm-service-button button span[translate="AlmaPurchaseRequest"] {
+    display: none;
+}
 
-/*Hide fees message for loan form*/
+/* Hide button when no local inventory is available in the IZ => bottom button */
+/* New browser solution */
+md-list-item:has(>button[aria-label="AlmaPurchaseRequest"]) {
+    display: none;
+}
+
+/* Old browser solution */
+button[aria-label="AlmaPurchaseRequest"] {
+    display: none;
+}
+
+/*433 Booking request*/
+
+div#form_field_checkAvailiability {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+    cursor: pointer;
+    border: #222 1px solid;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+    /* Übergang für die Hintergrundfarbe */
+}
+
+div#form_field_checkAvailiability span a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+div#form_field_checkAvailiability:after {
+    display: inline-block;
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iY2hldnJvbi1yaWdodF9jYWNoZTY0IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHk9IjM4NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaXQ9IiIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgTWVldCIgZm9jdXNhYmxlPSJmYWxzZSI+CiAgICA8cGF0aCBkPSJNOC41OSwxNi41OEwxMy4xNywxMkw4LjU5LDcuNDFMMTAsNkwxNiwxMkwxMCwxOEw4LjU5LDE2LjU4WiI+PC9wYXRoPgo8L3N2Zz4=');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 1px;
+    transition: transform 0.3s ease;
+    /* Übergang für die Bewegung des SVGs */
+}
+
+/* Hover-Effekte */
+div#form_field_checkAvailiability:hover {
+    background-color: #f0f0f0;
+    /* Leicht graue Hintergrundfarbe */
+}
+
+div#form_field_checkAvailiability:hover:after {
+    transform: translateX(5px);
+    /* SVG 5px nach rechts verschieben */
+}
+
+
+div#form_field_startDate md-input-container,
+div#form_field_endDate md-input-container {
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+/*439 Other*/
+
+/*Hide "fees message" for loan form*/
 
 form.almaRequestLoan div.courier-info.bar.alert-bar {
     display: none;
 }
 
-
 /* Hide library pickup, get it section */
-
 
 /* Speicherbibliothek UBE, Empty library UNINE */
 
@@ -2511,7 +2628,8 @@ prm-locations-filter div[ng-include="$ctrl.templateUrl"] {
 [translate="fulldisplay.holdings.showmore"] {
     border: 1px solid #a4a4a4;
     border-radius: 2px;
-    padding: 8px;
+    padding: 0 8px;
+    display: block;
 }
 
 [ng-if="$ctrl.relatedLocations.length>$ctrl.relatedLocationsListLimit"] {
@@ -2556,7 +2674,7 @@ md-list.md-primoExplore-theme.icnLblOtherUnitsE {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box !important;
-    -webkit-line-clamp: 4;
+    /* -webkit-line-clamp: 4; */
     -webkit-box-orient: vertical;
     white-space: normal;
 }
@@ -2689,6 +2807,31 @@ label[translate="email.note"] {
     transform: scale(.5);
 }
 
+/*447 Other IZs online availability*/
+
+/*Info box*/
+
+prm-alma-other-members .info-text {
+    margin: 0 10px 20px 81px;
+    border: 1px solid #222;
+    border-radius: 3px;
+    padding: 20px 10px;
+    font-size: 16px;
+    background-color: #fffad2;
+}
+
+@media only screen and (max-width: 960px) {
+    prm-alma-other-members .info-text {
+        margin: 0 10px 20px 10px;
+    }
+}
+
+/*Hide "Online Access"*/
+
+span.availability-status.available_online[translate="fulldisplay.otherMembers.availabilty.available_online"] {
+    display: none;
+}
+
 
 /*449 Other*/
 
@@ -2749,7 +2892,6 @@ prm-opac,
 prm-location-holdings .md-button.button-as-link {
     margin-top: 5px;
 }
-
 
 /*450 Left navigation bar*/
 
@@ -4024,6 +4166,9 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
 /*****************************************************************************/
 
 
+
+
+
 /*****************************************************************************/
 
 
@@ -4044,4 +4189,6 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
 
 /*****************************************************************************/
 
+ 
+/*****************************************************************************/
 
