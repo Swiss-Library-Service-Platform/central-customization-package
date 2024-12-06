@@ -4274,12 +4274,12 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
 
 /*Display "Open Knowledge Maps" link fully (facet group and okm link)*/
 .okm-full {
-    display: block;
+    display: none;
 }
 
 /*Display the "Open Knowledge Maps" link in the facet group*/
 eth-okm-link-component {
-    display: block;
+    display: none;
 }
 
 /*****************************************************************************/
