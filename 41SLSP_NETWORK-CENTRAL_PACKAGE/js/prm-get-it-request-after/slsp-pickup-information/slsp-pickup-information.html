@@ -32,7 +32,7 @@
 
     </div>
 
-    <div class="slsp-request-details physical-only deliverd-in">
+    <div class="slsp-request-details physical-only deliverd-in" ng-if="$ctrl.getSupplyTime()">
         <span class="request-details-label" translate="nui.ngrs.physical.deliverdin"></span><span
             class="request-details-label">:</span>
         <br>
@@ -44,14 +44,14 @@
         <span class="request-details-label" translate="nui.ngrs.search.brief.digital.getAChapter"></span>
     </div>
 
-    <div class="slsp-request-details physical-only">
+    <div class="slsp-request-details physical-only" ng-if="$ctrl.getLoanPeriod()">
         <span class="request-details-label" translate="nui.ngrs.form.physical.keepfor"></span>
         <br>
         <span>{{ $ctrl.getLoanPeriod() }}</span>
         <span class="days" translate="nui.ngrs.search.brief.physical.keepfor.days"></span>
         <span class="reading-Room-Pod" translate="customized.rapido.readingroom">in reading room</span>
     </div>
-    <div class="slsp-request-details">
+    <div class="slsp-request-details" ng-if="$ctrl.getPatronCost()">
         <span class="request-details-label" translate="rapido.tiles.digital.best_offer.line_4"></span>
         <br>
         <span><strong>{{ $ctrl.getPatronCost() }}</strong></span>
