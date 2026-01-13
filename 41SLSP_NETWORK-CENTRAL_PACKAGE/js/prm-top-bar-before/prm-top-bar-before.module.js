@@ -1,6 +1,7 @@
 import { slspGitHintModule } from './slsp-git-hint/slsp-git-hint.module';
 import { slspKeyboardFocusModule } from "./slsp-keyboard-focus/slsp-keyboard-focus.module";
 
+
 export const prmTopBarBeforeModule = angular
     .module('prmTopBarBeforeModule', [])
     .component('prmTopBarBefore', {
