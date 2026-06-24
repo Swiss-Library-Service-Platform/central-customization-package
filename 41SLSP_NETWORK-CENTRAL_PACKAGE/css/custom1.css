@@ -968,6 +968,12 @@ label[translate="login.union.title"] {
 
 /*190 Other*/
 
+/*Authentication Error*/
+prm-alert-bar>div>div>span>a {
+    font-weight: 600;
+    color: #000000;
+}
+
 
 /*X button close menu */
 
@@ -4186,4 +4192,3 @@ prm-resource-type-filter-bar button.selectedResourceTypeOption prm-icon {
 
 
 /*****************************************************************************/
-
